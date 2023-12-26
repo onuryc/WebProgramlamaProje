@@ -1,0 +1,43 @@
+﻿@using WebProje.Models.Sınıflar
+@model List<Urunler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row row-cols-1 row-cols-md-5 my-5 px-4  text-center">
+    @foreach (var x in Model)
+    {
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm p-2">
+                <a class="add-basket" href="#">Sepete Ekle  <i class="fa-solid fa-plus"></i></a>
+                <span class="image-item">
+                    <img src="@x.UrunResimURL" />
+                </span>
+                <div>
+                    <h2 class="my-2 text-secondary fs-5">@x.UrunAdi</h2>
+                    <p  class="text-dark fw-bold">@x.UrunFiyat TL</p>
+                </div>
+                <p>@x.Aciklama.Substring(0,70) ...</p>
+                <p><a class="btn text-white mt-3" href="/Products/UrunDetay/@x.ID">Detaylara git.</a></p>
+            </div>
+        </div>
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+

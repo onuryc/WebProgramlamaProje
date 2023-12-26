@@ -1,0 +1,58 @@
+﻿@using WebProje.Models.Sınıflar
+@model List<Adresler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container px-5 pt-3 my-5">
+    @foreach (var x in Model)
+    {
+
+        <div class="row">
+            <div class="col-sm-8" style="font-size:0.9rem;">
+                @x.AdresAciklama
+                <address class="pt-3">
+                    <strong>Adres</strong>: @x.AdresTarif
+                </address>
+                <strong>Telefon</strong>:<a class="tel" href="tel: @x.Telefon">@x.Telefon</a>
+            </div>
+            <div class="col-sm-4">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12091.635064557599!2d30.332731!3d40.742033!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc7996fa884f94c03!2sSakarya%20%C3%9Cniversitesi!5e0!3m2!1str!2str!4v1639833527573!5m2!1str!2str" width="400" height="250" style="border:0;" loading="lazy"></iframe>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="container my-5">
+    <form class="needs-validation" novalidate="">
+        <div class="row mb-3">
+            <i class="far fa-envelope-open text-center fs-2"></i>
+            <h3 class="text-center fs-3">Bizimle iletişime geçin</h3>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="validationTooltip01">Ad</label>
+                    <input type="text" class="form-control form-contact" id="validationTooltip01" required="">
+                </div>
+                <div class="mb-3">
+                    <label for="validationTooltip02">Soyad</label>
+                    <input type="text" class="form-control form-contact" id="validationTooltip02" required="">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="email" class="form-control form-contact" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="validationTextarea">Mesajınız</label>
+                <textarea class="form-control form-contact" id="validationTextarea"></textarea>
+            </div>
+        </div>
+        <div class="mb-2 d-flex justify-content-center">
+            <button class="btn mt-4 p-1 btn-outline-primary form-contact" type="submit" style="width:25%;">Gönder</button>
+        </div>
+    </form>
+</div>
+

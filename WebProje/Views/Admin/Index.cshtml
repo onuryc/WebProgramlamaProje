@@ -1,0 +1,79 @@
+﻿@model WebProje.Models.Sınıflar.AdminPanelListe
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="tab-pane fade show active px-4 py-3" id="v-pills-urun" role="tabpanel" aria-labelledby="v-pills-urun-tab">
+    <a href="/Admin/UrunEkle" class="log-out-icon">
+        <i class="fa-solid fa-plus"></i>Yeni Ürün Ekle
+    </a>
+    <h3 class="my-3 mb-4 text-center fw-bold">
+        Ürünler
+    </h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Urun Adi</th>
+                <th scope="col">Güncelle</th>
+                <th scope="col">Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model.UrunListe)
+            {
+                <tr>
+                    <th scope="row">@x.ID</th>
+                    <td>@x.MarkaAdi @x.UrunAdi</td>
+                    <td>
+                        <a href="/Admin/UrunGetir/@x.ID" class="text-success">Güncelle</a>
+                    </td>
+                    <td>
+                        <a href="/Admin/UrunSil/@x.ID" class="text-danger">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+
+<div class="tab-pane fade px-4 py-3" id="v-pills-kullanici" role="tabpanel" aria-labelledby="v-pills-kullanici-tab">
+    <h3 class="my-3 mb-4 text-center fw-bold">
+        Kullanıcılar
+    </h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Adı Soyadı</th>
+                <th scope="col">E-Mail</th>
+                <th scope="col">Rolü</th>
+                <th scope="col">Üyeliği Güncelle</th>
+                <th scope="col">Üyeliği Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model.KullaniciListe)
+            {
+                <tr>
+                    <th scope="row">@x.ID</th>
+                    <td>@x.Ad @x.Soyad </td>
+                    <td>@x.Email</td>
+                    <td>
+                        @x.Rol
+                    </td>
+                    <td>
+                        <a href="/Admin/KullaniciGetir/@x.ID">Güncelle</a>
+                    </td>
+                    <td>
+                        <a href="/Admin/KullaniciSil/@x.ID" class="text-danger">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,59 @@
+﻿@model WebProje.Models.Sınıflar.Urunler
+@{
+    ViewBag.Title = "UrunEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>UrunEkle</h2>
+<br />
+
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.MarkaAdi)
+    @Html.TextBoxFor(x => x.MarkaAdi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.UrunAdi)
+    @Html.TextBoxFor(x => x.UrunAdi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Aciklama)
+    @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.UrunResimURL)
+    @Html.TextBoxFor(x => x.UrunResimURL, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.UrunFiyat)
+    @Html.TextBoxFor(x => x.UrunFiyat, new { @class = "form-control" })
+    <br />
+    <div class="d-flex gap-2">
+        @Html.LabelFor(x => x.BaglantiTuru, new { @class = "me-3" }):
+        Kablosuz @Html.RadioButtonFor(x => x.BaglantiTuru, "Kablosuz")
+        Kablolu @Html.RadioButtonFor(x => x.BaglantiTuru, "Kablolu")
+    </div>
+    <br />
+    <div class="d-flex gap-2">
+        @Html.LabelFor(x => x.KullanimTipi, new { @class = "me-3" }):
+        Kulakustu @Html.RadioButtonFor(x => x.KullanimTipi, "Kulakustu")
+        Kulakici @Html.RadioButtonFor(x => x.KullanimTipi, "Kulakici")
+    </div>
+    <br />
+    <div class="d-flex gap-2">
+        @Html.LabelFor(x => x.Dayaniklilik, new { @class = "me-3" }):
+        Suya & Tere Dayanıklı @Html.RadioButtonFor(x => x.Dayaniklilik, "Evet")
+        Suya & Tere Dayanıklı Değil @Html.RadioButtonFor(x => x.Dayaniklilik, "Hayır")
+    </div>
+    <br />
+    <div class="d-flex gap-2">
+        @Html.LabelFor(x => x.GarantiSuresi, new { @class = "me-3" }):
+        3-6 Ay @Html.RadioButtonFor(x => x.GarantiSuresi, "3-6", new { @class = "me-3" })
+        7-12 Ay @Html.RadioButtonFor(x => x.GarantiSuresi, "7-12", new { @class = "me-3" })
+        13-18 Ay @Html.RadioButtonFor(x => x.GarantiSuresi, "13-18", new { @class = "me-3" })
+        19-24 Ay @Html.RadioButtonFor(x => x.GarantiSuresi, "19-24", new { @class = "me-3" })
+        25-36 Ay @Html.RadioButtonFor(x => x.GarantiSuresi, "25-36", new { @class = "me-3" })
+        36+ Ay @Html.RadioButtonFor(x => x.GarantiSuresi, "36+")
+    </div>
+
+    <div class="d-flex align-content-center justify-content-between mt-3">
+        <button class="btn btn-primary" type="submit">Ekle</button>
+        <a href="/Admin/Index">Ürünler Sayfasına Geri Dön.</a>
+    </div>
+</form>
+

@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mx-auto my-5 p-5 w-50">
+    <div class="d-flex align-items-start">
+        <div class="nav flex-column nav-pills me-5 gap-1" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <button class="nav-link active fs-6" id="v-pills-login-tab" data-bs-toggle="pill" data-bs-target="#v-pills-login" type="button" role="tab" aria-controls="v-pills-login" aria-selected="true"><i class="fa-solid fa-right-to-bracket"></i> Giriş Yap</button>
+            <button class="nav-link fs-6" id="v-pills-signup-tab" data-bs-toggle="pill" data-bs-target="#v-pills-signup" type="button" role="tab" aria-controls="v-pills-signup" aria-selected="false"><i class="fa-solid fa-right-to-bracket"></i> Kayıt Ol</button>
+        </div>
+        <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-login" role="tabpanel" aria-labelledby="v-pills-login-tab">
+                <div class="social-btn text-center">
+                    <a href="#" class="btn btn-primary btn-lg" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-info btn-lg" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="btn btn-danger btn-lg" title="Google"><i class="fa-brands fa-google"></i></a>
+                    <br><br><div id="yazi"><b>Sosyal Medya Hesabınızla Giriş Yapın</b></div>
+                </div>
+                @using (Html.BeginForm("Index", "Sign", FormMethod.Post))
+                {
+                    <div class="mb-1">
+
+                        <div class="md-form form-md mb-6">
+                            <label data-error="wrong" data-success="right" for="modalLRInput10"></label>
+                            <input type="email" id="modalLRInput10" name="Email" class="form-control form-control-md validate inpbt" placeholder="Email">
+                        </div>
+                        <div class="md-form form-md mb-5">
+                            <label data-error="wrong" data-success="right" for="modalLRInput11"></label>
+                            <input type="password" id="modalLRInput11" name="Sifre" class="form-control form-control-md validate inpbt" minlegth="6" placeholder="Şifre">
+
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="options text-center text-md-right mt-1">
+                            <a href="#" class="blue-text">Şifremi unuttum</a><p></p>
+                        </div>
+                        <div class="text-center mt-2">
+                            <button class="btn btn-secondary inpbt">Giriş Yap <i class="fa fa-sign-in ml-1"></i></button>
+                        </div>
+                    </div>
+                    }
+
+                </div>
+
+            <div class="tab-pane fade mw-100" id="v-pills-signup" role="tabpanel" aria-labelledby="v-pills-signup-tab">
+                <div class="social-btn text-center">
+                    <a href="#" class="btn btn-primary btn-lg" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-info btn-lg" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="btn btn-danger btn-lg" title="Google"><i class="fa-brands fa-google"></i></a>
+                    <br><br><div id="yazi"><b>Sosyal Medya Hesabınızla Kayıt Olun</b></div>
+                </div>
+                @using (Html.BeginForm("SignIn", "Sign", FormMethod.Post))
+                {
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <div class="md-form form-sm">
+                                <label data-error="wrong" data-success="right" for="modalLRInput14"></label>
+                                <input type="text" id="modalLRInput14" name="Ad" class="form-control form-control-md validate inpbt" minlegth="3" placeholder="İsim" required>
+                            </div>
+                            <div class="md-form form-sm">
+                                <label data-error="wrong" data-success="right" for="modalLRInput14"></label>
+                                <input type="text" id="modalLRInput14" name="Soyad" class="form-control form-control-md validate inpbt" minlength="3" placeholder="Soyisim" required>
+                            </div>
+                        </div>
+                        <div class="md-form form-sm mb-1">
+                            <label data-error="wrong" data-success="right" for="modalLRInput12"></label>
+                            <input type="email" id="modalLRInput12" name="Email" class="form-control form-control-md validate inpbt" placeholder="Email" required>
+
+                        </div>
+                            <div class="md-form form-sm">
+                                <label data-error="wrong" data-success="right" for="modalLRInput13"></label>
+                                <input type="password" id="modalLRInput13" name="Sifre" class="form-control form-control-md validate inpbt" minlegth="6" placeholder="Şifre" required>
+
+                            </div>
+                    </div>
+
+                    <div>
+                        <div class="text-center mt-4">
+                            <button class="btn btn-secondary inpbt">Kayıt Ol <i class="fa fa-sign-in"></i></button>
+                        </div>
+                    </div>
+                }
+                </div>
+            </div>
+        </div>
+    </div>
+

@@ -1,0 +1,31 @@
+﻿@model WebProje.Models.Sınıflar.Kullanici
+@{
+    ViewBag.Title = "KullaniciGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="my-3">Kullanıcı'yı Güncelle</h2>
+
+@using (Html.BeginForm("KullaniciGuncelle", "Admin", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.ID)
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.LabelFor(x => x.Ad)
+    @Html.TextBoxFor(x => x.Ad, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.LabelFor(x => x.Soyad)
+    @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.LabelFor(x => x.Email)
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.LabelFor(x => x.Rol)
+    @Html.DropDownListFor(x => x.Rol, new SelectList(new string[] { "Admin", "User"}), new { @class = "form-control" } )
+    <br />
+
+    <div class="d-flex align-content-center justify-content-between mt-3">
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}
+
